@@ -12,7 +12,7 @@ function p01() {
   return sum;
 }
 
-console.log(p01());
+//console.log(p01());
 
 // Problem 2
 // By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
@@ -33,4 +33,24 @@ function p02() {
   return sum;
 }
 
-console.log(p02());
+//console.log(p02());
+
+// Problem 3
+// What is the largest prime factor of the number 600851475143?
+
+function p03(number) {
+  let i=2;
+  while (i<=number) {
+    if (number%i == 0) {
+      number/=i;
+    } else {
+      i++;
+    }
+  }
+  console.log(i);
+}
+
+p03(600851475143);
+
+// Problem 4
+// Find the largest palindrome made from the product of two 3-digit numbers.
