@@ -50,7 +50,38 @@ function p03(number) {
   console.log(i);
 }
 
-p03(600851475143);
+// p03(600851475143);
 
 // Problem 4
 // Find the largest palindrome made from the product of two 3-digit numbers.
+
+function is_palindrome(number) {
+  const reverse_number = number.toString()
+  .split("")
+  .reverse()
+  .join("");
+  return number === parseInt(reverse_number);
+}
+
+function p04() {
+  let array_of_three_int = [];
+  for (let i = 100; i<=999; i++) {
+    array_of_three_int.push(i);
+  }
+  let result = [];
+  for(let i=0; i<(array_of_three_int.length - 1); i++) {
+    for(let j=(i+1); j<array_of_three_int.length; j++) {
+      result.push(array_of_three_int[i]*array_of_three_int[j]);
+    }
+  }
+  let palindromes = [];
+  for (let i=0; i<result.length; i++) {
+    if (is_palindrome(result[i])) {
+      palindromes.push(result[i]);
+    }
+  }
+  palindromes.sort((a,b)=>b-a);
+  return palindromes[0];
+}
+
+console.log(p04());
