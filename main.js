@@ -84,4 +84,25 @@ function p04() {
   return palindromes[0];
 }
 
-console.log(p04());
+//console.log(p04());
+
+// Problem 5
+// What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
+
+function p05() {
+  let array_of_numbers = [];
+  for (let i=1; i<=20; i++) {
+    array_of_numbers.push(i);
+  }
+  let i=20;
+  while(i>=20) {
+    const is_divisible = (array, number) => array.every((element) => number % element === 0);
+    if (is_divisible(array_of_numbers, i)) {
+      break;
+    }
+    i+=1;
+  }
+  console.log(i);
+}
+
+// p05();
