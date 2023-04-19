@@ -106,3 +106,23 @@ function p05() {
 }
 
 // p05();
+
+// Problem 6
+// Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
+
+function p06() {
+  let array_of_numbers = [];
+  for (let i=1; i <= 100; i++) {
+    array_of_numbers.push(i);
+  }
+  let array_of_squares = [];
+  for (let i=0; i<array_of_numbers.length; i++) {
+    array_of_squares.push(array_of_numbers[i] ** 2);
+  }
+  let x = array_of_numbers.reduce((a,b) => a+b);
+  let square_of_sum = (x ** 2);
+  let sum_of_squares = array_of_squares.reduce((a,b) => a+b);
+  return square_of_sum - sum_of_squares;
+}
+
+// console.log(p06());
