@@ -126,3 +126,33 @@ function p06() {
 }
 
 // console.log(p06());
+
+// Problem 7
+// What is the 10 001st prime number?
+function is_prime(int) {
+  if (int === 1) return false;
+  var d = int-1;
+  while (d > 1) {
+    if ( (int%d) === 0) return false;
+    d--;
+  }
+  return true;
+}
+
+function p07() {
+  let prime_numbers = [];
+  let i = 1;
+  while ( i>=1 ) {
+    if ( is_prime(i) ) {
+      prime_numbers.push(i);
+      if ( prime_numbers.length === 10001) {
+        break;
+      }
+    }
+    i+=1;
+  }
+  return prime_numbers.at(10000);
+}
+
+// console.log(p07());
+
