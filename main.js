@@ -180,3 +180,19 @@ function p08(filename) {
 
 //p08('/Users/klaudiaklis/Sites/Project-Euler/inc/problem8data.txt');
 
+// Problem 9
+// There exists exactly one Pythagorean triplet for which a + b + c = 1000. Find the product abc.
+
+function p09() {
+  for (let i=1; i<1000; i++) {
+    for (let j=1; j<1000; j++) {
+      for (let k=1; k<1000; k++) {
+        if (i**2 + j**2 === k**2 && i+j+k === 1000) {
+          return i*j*k;
+        }
+      }
+    }
+  }
+}
+
+//console.log(p09());
