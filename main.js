@@ -196,3 +196,19 @@ function p09() {
 }
 
 //console.log(p09());
+
+// Problem 10
+// Find the sum of all the primes below two million.
+
+function p10() {
+  let all_primes = [];
+  for (let i=2; i<2000000; i++) {
+    if (is_prime(i)) {
+      all_primes.push(i);
+    }
+  }
+  let sum = all_primes.reduce((a,b) => a+b);
+  return sum;
+}
+
+console.log(p10());
