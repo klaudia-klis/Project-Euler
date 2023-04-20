@@ -156,3 +156,27 @@ function p07() {
 
 // console.log(p07());
 
+// Problem 8
+// Find the thirteen adjacent digits in the 1000-digit number that have the greatest product. What is the value of this product?
+
+function p08(filename) {
+  const {readFileSync, promises: fsPromises} = require('fs');
+  const data = readFileSync(filename, 'utf-8');
+  const array_of_data = data.split('').map((item) => parseInt(item,10));
+
+  let result = [];
+  for (let i=0; i<array_of_data.length; i++) {
+    result.push(array_of_data.slice(i,i+13));
+  }
+  let products = [];
+  for(let i=0; i<result.length; i++) {
+    let product = result[i].reduce((a,b) => a*b);
+    products.push(product);
+  }
+  
+  let sorted_data = products.sort((a,b) => b-a);
+  console.log(sorted_data[0]);
+}
+
+//p08('/Users/klaudiaklis/Sites/Project-Euler/inc/problem8data.txt');
+
