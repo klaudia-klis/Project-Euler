@@ -27,3 +27,17 @@ function p12() {
 
 // Problem 13
 // Work out the first ten digits of the sum of the following one-hundred 50-digit numbers.
+function p13(filename) {
+  const {readFileSync, promises: fsPromises} = require('fs');
+  const data = readFileSync(filename, 'utf-8');
+  const array_of_data = data.split(/\r?\n/);
+  
+  const array_of_integers = [];
+  for(let i=0; i<array_of_data.length; i++) {
+    array_of_integers.push(BigInt(parseInt(array_of_data[i])));
+  }
+  let sum = array_of_integers.reduce((a,b)=>a+b)
+  
+  console.log(sum.toString().split('').slice(0,10).join(''));
+}
+p13('/Users/klaudiaklis/Sites/Project-Euler/inc/problem13data.txt');
