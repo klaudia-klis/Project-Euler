@@ -40,4 +40,46 @@ function p13(filename) {
   
   console.log(sum.toString().split('').slice(0,10).join(''));
 }
-p13('/Users/klaudiaklis/Sites/Project-Euler/inc/problem13data.txt');
+//p13('/Users/klaudiaklis/Sites/Project-Euler/inc/problem13data.txt');
+
+// Problem 14
+// Which starting number, under one million, produces the longest chain? (Collatz Problem)
+
+
+function p14(number) {
+ let some_arr = [number];
+ while ( number > 1) {
+   if (number % 2 === 0 ) {
+     number = number/2;
+     some_arr.push(number);
+   } else if ( number % 2 !== 0 ) {
+     number = 3*number + 1;
+     some_arr.push(number);
+   }
+ }
+  return some_arr.length;
+}
+let result = [];
+for (let i = 0; i < 1000000; i++) {
+  result.push(p14(i));
+}
+
+let theLargest = result.sort((a,b) => b-a)[0];
+
+let whatNumber = [];
+for (let j = 0; j < 1000000; j++) {
+  whatNumber.push([j, p14(j)]);
+}
+
+function findTheLargest(whatNumber) {
+  let answer = [];
+  for ( let i = 0; i<whatNumber.length; i++) {
+    if ( whatNumber[i][1] === theLargest) {
+      return whatNumber[i][0]
+    }
+  }
+}
+
+//console.log(findTheLargest(whatNumber));
+
+
