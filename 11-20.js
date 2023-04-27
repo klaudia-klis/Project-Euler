@@ -59,19 +59,20 @@ function p14(number) {
  }
   return some_arr.length;
 }
-let result = [];
-for (let i = 0; i < 1000000; i++) {
-  result.push(p14(i));
-}
 
-let theLargest = result.sort((a,b) => b-a)[0];
-
-let whatNumber = [];
-for (let j = 0; j < 1000000; j++) {
-  whatNumber.push([j, p14(j)]);
-}
-
-function findTheLargest(whatNumber) {
+function findTheLargest() {
+  let result = [];
+  for (let i = 0; i < 1000000; i++) {
+    result.push(p14(i));
+  }
+  
+  let theLargest = result.sort((a,b) => b-a)[0];
+  
+  let whatNumber = [];
+  for (let j = 0; j < 1000000; j++) {
+    whatNumber.push([j, p14(j)]);
+  }
+  
   let answer = [];
   for ( let i = 0; i<whatNumber.length; i++) {
     if ( whatNumber[i][1] === theLargest) {
@@ -80,6 +81,19 @@ function findTheLargest(whatNumber) {
   }
 }
 
-//console.log(findTheLargest(whatNumber));
+// console.log(findTheLargest());
+
+// Problem 15
+// Starting in the top left corner of a 2×2 grid, and only being able to move to the right and down, there are exactly 6 routes to the bottom right corner. How many such routes are there through a 20×20 grid?
 
 
+// Problem 16
+// What is the sum of the digits of the number 21000?
+
+function p16() {
+  let int = BigInt(2 ** 1000);
+  let arrayOfDigits = Array.from(String(int), Number);
+  return arrayOfDigits.reduce((a,b) => a+b);
+}
+
+// console.log(p16())
